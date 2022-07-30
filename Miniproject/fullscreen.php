@@ -19,26 +19,6 @@ navigator.getMedia({video:true},function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // if (navigator.getUserMedia) {
     //     navigator.getUserMedia({
     //         video: true
