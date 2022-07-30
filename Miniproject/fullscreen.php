@@ -5,29 +5,63 @@ echo'<div style="text-align:center;"><a class="btn light m-auto d-block" target=
 ?>
 <script>
 function isCamAlreadyActive() {
-    if (navigator.getUserMedia) {
-        navigator.getUserMedia({
-            video: true
-        }, function (stream) {
-            // returns true if any tracks have active state of true
-            var result = stream.getVideoTracks().some(function (track) {
-                return track.enabled && track.readyState === 'live';
-            });
-            var btn=document.getElementById("start");
-      if (result) {
-        alert("Your webcam is not on");
-       btn.style.display="block";
-       
-      } else {
-        alert("ON");
-         btn.style.display="none";
-      }
-        },
-        function(e) {
-            alert("Error: " + e.name);
-        });
 
-    }
+  navigator.getMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia || navigator.msGetUserMedia);
+ 
+navigator.getMedia({video:true},function() {
+  btn.style.display="block";
+  alert("webcam is loaded");
+},function() {
+  btn.style.display="none";
+  alert("webcam is not loaded");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // if (navigator.getUserMedia) {
+    //     navigator.getUserMedia({
+    //         video: true
+    //     }, function (stream) {
+    //         // returns true if any tracks have active state of true
+    //         var result = stream.getVideoTracks().some(function (track) {
+    //             return track.enabled && track.readyState === 'live';
+    //         });
+    //         var btn=document.getElementById("start");
+    //   if (result) {
+    //     alert("Your webcam is not on");
+    //    btn.style.display="block";
+       
+    //   } else {
+    //     alert("ON");
+    //      btn.style.display="none";
+    //   }
+    //     },
+    //     function(e) {
+    //         alert("Error: " + e.name);
+    //     });
+
+    // }
   }
 
 </script>
